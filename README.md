@@ -1,5 +1,23 @@
 # LBNL SDAHU：資料前處理與 1D-CNN+MLP 驗證及交接
 
+## 組員開始使用
+
+實際程式目錄為 `hvac-fuzzy-sim/hvac-fuzzy-sim`。原始 LBNL 資料不隨 GitHub 提供，請各組員將自己的 `LBNL_FDD_Dataset_SDAHU` 放入該程式目錄的 `data` 資料夾，確認 `data/LBNL_FDD_Dataset_SDAHU/AHU_annual.csv` 存在。
+
+完整操作步驟見 [資料放置說明](hvac-fuzzy-sim/hvac-fuzzy-sim/data/README.md)。每位組員首次使用都必須放入原始資料並重新前處理，產生本機的 `data/lbnl_sdahu_5min.csv` 後才能訓練。原始資料與產生的前處理 CSV 都不隨 GitHub 提供。
+
+```powershell
+cd hvac-fuzzy-sim/hvac-fuzzy-sim
+python -m venv .venv
+.venv/Scripts/Activate.ps1
+python -m pip install -e ".[dev]"
+python scripts/prepare_lbnl.py --src data/LBNL_FDD_Dataset_SDAHU/AHU_annual.csv
+python -m pytest
+python scripts/run_cnn_pipeline.py --dataset lbnl --quick --out out/lbnl_recheck
+```
+
+最後一步為快速流程檢查，正式訓練請移除 `--quick`。原始資料夾與快速檢查的輸出目錄已列入 `.gitignore`。
+
 查核日期：2026-10-03。版本依據：使用者提供的 hvac-fuzzy-sim.zip，內層 hvac-fuzzy-sim/hvac-fuzzy-sim；結果以 out/lbnl 為準。
 
 本文件核對現有程式與儲存結果，未重新訓練、執行測試或重算原始資料。文獻為本次補查的方法依據，不代表開發時確實引用。範圍為資料前處理、下一刻室溫預測、MLP-only 對照與多步 rollout，不包含模糊控制及 DE。

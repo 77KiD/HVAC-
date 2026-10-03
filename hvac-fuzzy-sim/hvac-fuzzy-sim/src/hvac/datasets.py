@@ -117,7 +117,11 @@ def preprocess_lbnl(raw):
 def load_lbnl(data_dir):
     f = data_dir / LBNL_FILE
     if not f.exists():
-        raise FileNotFoundError(f"{f} 不存在, 先執行 python scripts/prepare_lbnl.py --src <AHU_annual.csv 或 zip>")
+        raise FileNotFoundError(
+            f"找不到前處理資料 {f}。每位組員首次使用需先把 LBNL_FDD_Dataset_SDAHU "
+            "放入 data，再從專案目錄執行：python scripts/prepare_lbnl.py "
+            "--src data/LBNL_FDD_Dataset_SDAHU/AHU_annual.csv"
+        )
     df = pd.read_csv(f, parse_dates=["timestamp"])
     df = _add_time(df, gap_min=5)
     df["group"] = "fault_free"

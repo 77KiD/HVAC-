@@ -1,6 +1,8 @@
 # HVAC 模擬器專題 — CNN 動態模型 + 模糊控制 + DE
 
-用 Limassol Hotel EnergyPlus 資料訓練 1D-CNN 當「受控體模擬器」，
+目前採用 LBNL SDAHU 無故障資料訓練 1D-CNN+MLP，並以 MLP-only 與 persistence 對照。原始資料由組員自行放入 `data/LBNL_FDD_Dataset_SDAHU`，詳見 [資料放置說明](data/README.md)。Limassol 是備案。
+
+後續規劃以 1D-CNN 當「受控體模擬器」，
 再以模糊控制器決定冷水 setpoint，最後用 DE 最佳化模糊參數，比較溫度誤差與能耗。
 
 ## 1. 環境建置（每位組員做一次）
@@ -13,7 +15,7 @@ Windows（cmd）：
 python -m venv .venv
 .venv\Scripts\activate
 pip install -e ".[dev]"
-python scripts\download_data.py
+python scripts\prepare_lbnl.py --src data/LBNL_FDD_Dataset_SDAHU/AHU_annual.csv
 pytest
 ```
 

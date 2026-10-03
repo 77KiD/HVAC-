@@ -1,0 +1,15 @@
+# Raw LBNL datasets are supplied locally by each teammate.
+**/data/LBNL_FDD_Dataset_SDAHU/
+**/data/LBNL_FDD_Data_Sets_SDAHU/
+**/data/*SDAHU*.zip
+**/data/lbnl_sdahu_5min.csv
+
+# Local Python environments and caches.
+**/.venv/
+**/venv/
+**/__pycache__/
+*.py[cod]
+**/.pytest_cache/
+
+# Separate outputs from verification runs.
+**/out/lbnl_recheck/
