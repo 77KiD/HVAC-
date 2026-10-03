@@ -1,0 +1,6 @@
+numpy
+pandas
+matplotlib
+scipy        # DE: scipy.optimize.differential_evolution
+torch        # GPU 版請依 https://pytorch.org 的安裝指令另裝
+pytest

@@ -1,0 +1,12 @@
+Metadata-Version: 2.4
+Name: hvac
+Version: 0.1.0
+Summary: HVAC 模擬器專題: CNN 動態模型 + 模糊控制 + DE
+Requires-Python: <3.13,>=3.10
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: matplotlib
+Requires-Dist: torch
+Requires-Dist: scipy
+Provides-Extra: dev
+Requires-Dist: pytest; extra == "dev"

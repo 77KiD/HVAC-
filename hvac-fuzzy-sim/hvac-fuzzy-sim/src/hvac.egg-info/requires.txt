@@ -1,0 +1,8 @@
+numpy
+pandas
+matplotlib
+torch
+scipy
+
+[dev]
+pytest

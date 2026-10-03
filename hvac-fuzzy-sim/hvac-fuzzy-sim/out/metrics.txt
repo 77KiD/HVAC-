@@ -1,0 +1,16 @@
+persistence  1-step T RMSE = 0.201 °C
+CNN_MLP      1-step T RMSE = 0.190 °C   P RMSE = 8.43 kW
+    12°C  T 0.055   P 7.28
+    14°C  T 0.124   P 6.76
+    16°C  T 0.202   P 8.99
+    18°C  T 0.312   P 8.83
+    20°C  T 0.155   P 9.89
+MLPOnly      1-step T RMSE = 0.185 °C   P RMSE = 8.10 kW
+    12°C  T 0.055   P 6.78
+    14°C  T 0.123   P 6.02
+    16°C  T 0.202   P 8.90
+    18°C  T 0.299   P 8.05
+    20°C  T 0.153   P 10.11
+rollout CNN_MLP      RMSE@1h 0.167  @6h 0.541  @24h 0.588
+rollout MLPOnly      RMSE@1h 0.186  @6h 0.590  @24h 0.597
+rollout persistence  RMSE@1h 0.156  @6h 0.716  @24h 0.651

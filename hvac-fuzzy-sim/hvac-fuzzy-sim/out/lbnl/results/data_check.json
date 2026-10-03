@@ -1,0 +1,71 @@
+{
+  "rows": 525540,
+  "start": "2018-01-01 01:00:00",
+  "end": "2018-12-31 23:59:00",
+  "interval_min": 1.0,
+  "missing": 0,
+  "dup_timestamps": 0,
+  "required": {
+    "室溫": {
+      "ZONE_TEMP_1": true,
+      "ZONE_TEMP_2": true,
+      "ZONE_TEMP_3": true,
+      "ZONE_TEMP_4": true,
+      "ZONE_TEMP_5": true
+    },
+    "控制量": {
+      "CHWC_VLV_DM": true
+    },
+    "功率或能耗": {
+      "SF_WAT": true,
+      "RF_WAT": true
+    }
+  },
+  "constant_cols": [
+    "OA_CFM",
+    "SA_SPSPT",
+    "SA_TEMPSPT",
+    "SF_SPD"
+  ],
+  "valve": {
+    "mean": 0.39226372719220787,
+    "std": 0.2806990465973171,
+    "frac_open": 0.6822292074837988
+  },
+  "units": {
+    "SA_SP_mean": 402.7879896721277,
+    "SA_SP_note": "平均約 400 → 實際為 Pa (1.6 inH₂O ≈ 398 Pa)，文件標示 inH₂O 有誤",
+    "SA_CFM_median": 595874.56,
+    "SA_CFM_note": "若為 CFM 則冷卻負載達數千 kW，不合理；以 L/min 解讀時約 90 kW，合理"
+  },
+  "occupied": {
+    "fraction": 0.5302774289302432,
+    "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "hours": [
+      5,
+      22
+    ],
+    "note": "0=週一。資料的營業日/時與文件 (週一–六 6–22 時) 相差約 1 天 1 小時，推測為模擬年份與日曆不同"
+  },
+  "processed": {
+    "file": "data\\lbnl_sdahu_5min.csv",
+    "rows": 55425,
+    "interval_min": 5,
+    "room_temp_c": [
+      14.486431377777775,
+      42.0699222
+    ],
+    "power_kw_mean": 19.812409232816645,
+    "cool_kw_mean": 57.20022302152281,
+    "fan_kw_mean": 0.7456682256423737,
+    "cop_assumed": 3.0
+  },
+  "decision": "採用 LBNL SDAHU：室溫、控制量 (CHWC_VLV_DM) 齊全；功率只有風扇實測，冷卻用電以冷卻負載 ÷ COP 估算"
+}
